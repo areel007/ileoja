@@ -38,6 +38,9 @@ export default defineComponent({
   cursor: pointer;
   margin-bottom: 3.6rem;
 }
+.nav:last-child {
+  margin-bottom: 0;
+}
 .nav img {
   margin-right: 2.5rem;
 }

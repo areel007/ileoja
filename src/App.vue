@@ -1,5 +1,7 @@
 <template>
-  <web-view-nav :nav-links="navLinks"></web-view-nav>
+  <web-view-nav
+      :nav-links="navLinks"
+  ></web-view-nav>
   <router-view
       :categories="categories"
       :trendingProducts="trendingProducts"
@@ -8,6 +10,7 @@
   </router-view>
   <footer-component
       :footer-details="footerDetails"
+      :socials="socials"
   ></footer-component>
 </template>
 
@@ -41,6 +44,54 @@ export default defineComponent({
       {
         categoryImage: 'electronics.png',
         categoryText: 'Electronics'
+      },
+      {
+        categoryImage: 'setting.png',
+        categoryText: 'Equipments & Tools'
+      },
+      {
+        categoryImage: 'eyeglasses.png',
+        categoryText: 'Fashion'
+      },
+      {
+        categoryImage: 'beauty.png',
+        categoryText: 'Health & Beauty'
+      },
+      {
+        categoryImage: 'cabinet.png',
+        categoryText: 'Home & Gardens'
+      },
+      {
+        categoryImage: 'portfolio.png',
+        categoryText: 'Jobs'
+      },
+      {
+        categoryImage: 'phone.png',
+        categoryText: 'Phones'
+      },
+      {
+        categoryImage: 'property.png',
+        categoryText: 'Property'
+      },
+      {
+        categoryImage: 'repair.png',
+        categoryText: 'Repair & Construction'
+      },
+      {
+        categoryImage: 'cv.png',
+        categoryText: 'Seeking work'
+      },
+      {
+        categoryImage: 'services.png',
+        categoryText: 'Services'
+      },
+      {
+        categoryImage: 'football.png',
+        categoryText: 'Sports & Arts'
+      },
+      {
+        categoryImage: 'car.png',
+        categoryText: 'Vehicle'
       },
     ])
 
@@ -117,16 +168,67 @@ export default defineComponent({
         trendingProductName: "Red new carpet",
         isProductFavorite: false,
       },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
+      {
+        trendingProductImage: "",
+        trendingProductPrice: "$25",
+        trendingProductName: "Red new carpet",
+        isProductFavorite: false,
+      },
     ])
-
-    /** Methods */
-    const toggleFavorite = (e) => {
-      trendingProducts.filter(trendingProduct => {
-        if (trendingProduct.trendingProductName === e.trendingProductName) {
-          trendingProduct.isProductFavorite = true
-        }
-      })
-    }
 
     const footerDetails = reactive([
       {
@@ -147,12 +249,30 @@ export default defineComponent({
       },
     ])
 
+    const socials = reactive([
+      { to: '/twitter', imageUrl: 'twitter.svg'},
+      { to: '/facebook', imageUrl: 'facebook.svg'},
+      { to: '/google', imageUrl: 'google_icon.svg'},
+      { to: '/instagram', imageUrl: 'instagram.svg'},
+    ])
+
+
+    /** Methods */
+    const toggleFavorite = (e) => {
+      trendingProducts.filter(trendingProduct => {
+        if (trendingProduct.trendingProductName === e.trendingProductName) {
+          trendingProduct.isProductFavorite = true
+        }
+      })
+    }
+
     return {
       navLinks,
       categories,
       trendingProducts,
       toggleFavorite,
       footerDetails,
+      socials,
     }
   }
 })
@@ -160,4 +280,6 @@ export default defineComponent({
 
 <style>
 @import "./styles/guide.css";
+
+
 </style>

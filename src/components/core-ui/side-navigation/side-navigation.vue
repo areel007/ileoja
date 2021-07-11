@@ -25,6 +25,7 @@ export default defineComponent({
   padding: 2.5rem 3.4rem;
   position: sticky;
   top: 10rem;
+  border: 1px solid #E9E9E9;
 }
 
 </style>

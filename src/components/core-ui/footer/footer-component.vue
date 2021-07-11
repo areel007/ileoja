@@ -32,11 +32,16 @@
               </li>
             </ul>
           </div>
-
-
-
         </div>
-        <div class="bottom__footer__inner"></div>
+        <div class="bottom__footer__inner">
+          <a
+              v-for="(social, index) in socials"
+              :key="index"
+              :href="social.to"
+          >
+            <img :src="require(`../../../assets/images/svgs/${social.imageUrl}`)" alt="twitter">
+          </a>
+        </div>
       </div>
     </div>
   </footer>
@@ -47,7 +52,7 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "footer-component",
-  props: ["footerDetails"]
+  props: ["footerDetails", "socials"]
 })
 </script>
 
@@ -84,6 +89,15 @@ footer {
 .column ul li a {
   font-size: var(--fs-12);
   color: var(--secondary-color);
+}
+.bottom__footer__inner {
+  width: 100%;
+  height: 5rem;
+  display: flex;
+  align-items: center;
+}
+.bottom__footer__inner a img {
+  margin-right: 3.3rem;
 }
 
 </style>

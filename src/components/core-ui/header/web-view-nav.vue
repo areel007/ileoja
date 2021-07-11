@@ -33,9 +33,10 @@ export default defineComponent({
 header {
   position: fixed;
   width: 100%;
-  background-color: var(--web-view-header-background-color, var(--color-white));
+  background-color: var(--web-view-header-background-color, #F9F9F9);
   z-index: 100;
-  padding: 0 4.5rem;
+  /*padding: 0 4.5rem;*/
+  box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
 }
 .header__inner {
   height: 10rem;
@@ -48,7 +49,6 @@ header {
 .header__inner ul {
   display: flex;
   margin-left: auto;
-  margin-right: 5rem;
 }
 .header__inner ul li a {
   font-size: var(--fs-16);
