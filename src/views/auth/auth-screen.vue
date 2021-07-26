@@ -1,7 +1,7 @@
 <template>
-  <div class="login">
+  <div class="auth">
     <div class="overlay"></div>
-    <div class="login__inner">
+    <div class="auth__inner">
       <svg
           width="18"
           height="18"
@@ -30,79 +30,52 @@
         12.4431 12.9583 12.2424L9.7235 8.99996L12.9659 5.75754C13.1667 5.55678 13.1667
         5.23481 12.9659 5.03405Z" fill="black"/>
       </svg>
-      <section-title title="login"></section-title>
-      <form @submit.prevent="login">
 
-        <div class="form__control">
-          <text-input
-              placeholder="email"
-              v-model="email"
-              input-type="email"
-          ></text-input>
-        </div>
-
-        <div class="form__control">
-          <password-input
-              placeholder="password"
-              :input-type="passwordInputType"
-              v-model="password"
-              @hide-password="hidePassword"
-          ></password-input>
-        </div>
-
-        <router-link to="/forgot-password" class="forgot-password">Forgot your password ?</router-link>
-
-        <submit
-            display-text="Login"
-        ></submit>
-
-        <p class="register">Don't have an account? <router-link to="/register">Register</router-link></p>
-
-      </form>
+      <div class="google-btn">
+        <icon-button
+            display-text="login with google"
+        >
+          <img src="../../assets/images/google.png" alt="google">
+        </icon-button>
+      </div>
+      <div class="facebook-btn">
+        <icon-button
+            display-text="login with facebook"
+        >
+          <img src="../../assets/images/facebook.png" alt="google">
+        </icon-button>
+      </div>
+      <div class="plain-btn">
+        <plain-button
+            display-text="Login with email"
+            @button-action="loginAction"
+        ></plain-button>
+      </div>
+      <p class="register">Don't have an account? <router-link to="/register">Register</router-link></p>
+      <p class="terms">By proceeding you agree to our <br><span>Terms and Conditions</span></p>
     </div>
-
   </div>
 </template>
 
-<script lang="ts">
-import {defineComponent, ref} from "vue";
-import Submit from "@/components/core-ui/buttons/submit.vue";
-import PasswordInput from "@/components/core-ui/inputs/password-input.vue";
-import TextInput from "@/components/core-ui/inputs/text-input.vue";
-import SectionTitle from "../../components/core-ui/titles/section-title.vue";
+<script>
 
-export default defineComponent({
-  name: "Login",
-  components: {SectionTitle, Submit, PasswordInput, TextInput},
-  setup () {
-    const email = ref('')
-    const passwordInputType = ref('password')
-    const password = ref('')
+import {defineComponent} from "vue";
+import IconButton from "../../components/core-ui/buttons/icon-button";
+import PlainButton from "../../components/core-ui/buttons/plain-button";
 
-    /* Methods **/
-    const hidePassword = () => {
-      passwordInputType.value === 'password'
-          ? passwordInputType.value = 'text'
-          : passwordInputType.value = 'password'
-    }
-
-    const login = () => {
-      alert(email.value)
-    }
-
-    return {
-      email,
-      passwordInputType,
-      password,
-      hidePassword,
-      login,
+export default defineComponent ({
+  name: "auth-screen",
+  components: {PlainButton, IconButton},
+  methods: {
+    loginAction () {
+      this.$router.push('/login')
     }
   }
 })
 </script>
 
 <style scoped>
-.login {
+.auth {
   width: 100vw;
   height: 100vh;
   position: fixed;
@@ -121,38 +94,28 @@ export default defineComponent({
   left: 0;
   z-index: 500;
 }
-.login__inner {
+.auth__inner {
   padding: 8rem;
   background-color: #F9F9F9;
   z-index: 1000;
   --icon-button-height: 4.8rem;
   --icon-button-border: 1px solid var(--secondary-color);
-  --title-margin-bottom: 2.5rem;
   position: relative;
 }
-.form__control {
-  margin-bottom: 1.4rem;
-  width: 35.7rem;
-  --text-input-bg: #f9f9f9;
-  --password-input-bg: #f9f9f9;
+.google-btn,
+.facebook-btn {
+  margin-bottom: 1.2rem;
 }
-label {
-  margin-bottom: .5rem;
-  display: block;
-  font-size: var(--fs-12);
-  font-weight: var(--font-weight-medium);
+.google-btn {
+  --icon-button-background-color: var(--color-white);
+  --icon-button-color: var(--secondary-color);
 }
-form>a {
-  font-family: var(--montserat);
-  font-style: normal;
-  font-weight: var(--font-weight-medium);
-  font-size: var(--fs-14);
-  line-height: 1.5rem;
-  letter-spacing: 0.1px;
-  text-decoration-line: underline;
-  color: #FD6649;
+.facebook-btn {
+  --icon-button-background-color: #3B5998;
+  --icon-button-color: var(--color-white);
+}
+.plain-btn {
   margin-bottom: 4rem;
-  display: block;
 }
 .register {
   text-align: center;
@@ -164,7 +127,6 @@ form>a {
   line-height: 1.6rem;
   letter-spacing: 0.4px;
   color: var(--secondary-color);
-  margin-top: 4.6rem;
 }
 .register>a {
   font-family: var(--montserat);
@@ -174,6 +136,27 @@ form>a {
   line-height: 1.5rem;
   text-align: center;
   letter-spacing: 0.1px;
+  color: var(--primary-color);
+}
+.terms {
+  text-align: center;
+  margin-bottom: 2.2rem;
+  font-family: var(--montserat);
+  font-style: normal;
+  font-weight: var(--font-weight-normal);
+  font-size: var(--fs-12);
+  line-height: 1.6rem;
+  letter-spacing: 0.4px;
+  color: var(--secondary-color);
+}
+.terms>span {
+  font-family: var(--montserat);
+  font-style: normal;
+  font-weight: var(--font-weight-normal);
+  font-size: var(--fs-12);
+  line-height: 1.6rem;
+  text-align: center;
+  letter-spacing: 0.4px;
   color: var(--primary-color);
 }
 .close-svg {

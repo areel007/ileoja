@@ -1,6 +1,8 @@
 <template>
-  <div class="nav">
-    <img :src="require(`../../../assets/images/category-images/${categoryImage}`)" alt="fruit 1">
+  <div
+      class="nav"
+  >
+    <img :src="categoryImage" :alt="category">
     <p class="category">{{ category }}</p>
     <svg
         width="10"
@@ -25,7 +27,9 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "navigation",
-  props: ["category", "categoryImage"]
+  props: ["category", "categoryImage"],
+  methods: {
+  }
 })
 </script>
 
@@ -43,6 +47,7 @@ export default defineComponent({
 }
 .nav img {
   margin-right: 2.5rem;
+  width: 2.4rem;
 }
 .category {
   font-size: var(--fs-14);

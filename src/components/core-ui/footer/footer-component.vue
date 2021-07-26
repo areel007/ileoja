@@ -1,5 +1,5 @@
 <template>
-  <footer>
+  <footer v-if="$route.name==='Home'">
     <div class="container">
       <div class="footer__inner">
         <div class="top__footer__inner">
@@ -52,7 +52,7 @@ import {defineComponent} from "vue";
 
 export default defineComponent({
   name: "footer-component",
-  props: ["footerDetails", "socials"]
+  props: ["footerDetails", "socials"],
 })
 </script>
 

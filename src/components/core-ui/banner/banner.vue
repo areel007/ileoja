@@ -7,7 +7,7 @@
         <div class="search">
           <div class="location__search">
             <span class="find-anything">Find anything in</span>
-            <button>
+            <button @click="$emit('open-states')">
               <span class="all-nigeria">All Nigeria</span>
               <svg
                   width="12"
@@ -62,6 +62,7 @@ export default {
   width: 100%;
   background-color: var(--primary-color);
   margin-bottom: 1.1rem;
+  position: relative;
 }
 .banner__inner {
   width: 100%;

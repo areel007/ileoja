@@ -1,10 +1,11 @@
 <template>
-  <div class="side-navi">
+  <div class="side-navis">
     <navigation
-        v-for="(category, index) in categories"
+        v-for="(category, index) in allCategories"
         :key="index"
-        :category="category.categoryText"
-        :category-image="category.categoryImage"
+        :category="category['cat_name']"
+        :category-image="category['picture']"
+        @mouseover="selectCategory(category.id)"
     ></navigation>
   </div>
 </template>
@@ -12,16 +13,28 @@
 <script>
 import {defineComponent} from "vue";
 import Navigation from "./navigation";
+import {mapGetters, mapActions} from "vuex"
 
 export default defineComponent({
   name: "side-navigation",
   components: {Navigation},
-  props: ["categories"]
+  methods: {
+    ...mapActions(['fetchCategories', 'toggleShowSubcategory']),
+    selectCategory (id) {
+      this.$emit('select-category', id)
+    }
+  },
+
+  computed: mapGetters(['allCategories']),
+
+  created() {
+    this.fetchCategories()
+  }
 })
 </script>
 
 <style scoped>
-.side-navi {
+.side-navis {
   padding: 2.5rem 3.4rem;
   position: sticky;
   top: 10rem;

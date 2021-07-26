@@ -1,4 +1,9 @@
 import { createStore } from 'vuex'
+import states from "./modules/states";
+import lgas from "./modules/lgas";
+import trending from "./modules/trending";
+import category from "./modules/category";
+import subcategory from "./modules/sub-category"
 
 export default createStore({
   state: {
@@ -8,5 +13,10 @@ export default createStore({
   actions: {
   },
   modules: {
+    states,
+    lgas,
+    trending,
+    category,
+    subcategory
   }
 })

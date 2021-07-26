@@ -5,12 +5,12 @@
     ></section-title>
     <div class="trending-product-cards">
       <trending-card
-      v-for="(trendingProduct, index) in trendingProducts"
+      v-for="(trendingProduct, index) in allTrendingProducts"
       :key="index"
-      :is-product-favorite="trendingProduct.isProductFavorite"
-      :trending-product-image="trendingProduct.trendingProductImage"
-      :trending-product-name="trendingProduct.trendingProductName"
-      :trending-product-price="trendingProduct.trendingProductPrice"
+      :is-product-favorite="trendingProduct['favourite_view']"
+      :trending-product-image="trendingProduct['product_image']"
+      :trending-product-name="trendingProduct['product_name']"
+      :trending-product-price="trendingProduct['price']"
       @toggle-favorite="toggleFavorite(trendingProduct)"
       ></trending-card>
     </div>
@@ -21,15 +21,22 @@
 import {defineComponent} from "vue";
 import SectionTitle from "../titles/section-title";
 import TrendingCard from "../cards/trending-card";
+import {mapGetters, mapActions} from "vuex"
 
 export default defineComponent({
   name: "trending",
   components: {TrendingCard, SectionTitle},
-  props: ["trendingProducts"],
   methods: {
+    ...mapActions(['fetchTrendingProduct']),
     toggleFavorite(e) {
       this.$emit('toggle-favorite', e)
     }
+  },
+
+  computed: mapGetters(['allTrendingProducts']),
+
+  created() {
+    this.fetchTrendingProduct()
   }
 })
 </script>

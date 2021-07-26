@@ -1,11 +1,14 @@
 <template>
+  <div :class="{'overlay': showStates}"></div>
   <web-view-nav
       :nav-links="navLinks"
   ></web-view-nav>
+
   <router-view
       :categories="categories"
       :trendingProducts="trendingProducts"
       @toggle-favorite="toggleFavorite($event)"
+      @open-states="openStates"
   >
   </router-view>
   <footer-component
@@ -15,15 +18,16 @@
 </template>
 
 <script>
-import {defineComponent, reactive} from "vue";
+import {defineComponent, reactive, ref} from "vue";
 import WebViewNav from "./components/core-ui/header/web-view-nav";
 import FooterComponent from "./components/core-ui/footer/footer-component";
+import router from "./router";
 
 export default defineComponent({
   components: {FooterComponent, WebViewNav},
   setup() {
     const navLinks = reactive([
-      { linkName: 'Login', to: '/login'},
+      { linkName: 'Login', to: '/auth'},
       { linkName: 'Register', to: '/register'},
       { linkName: 'Sell', to: '/sell'},
     ])
@@ -256,6 +260,8 @@ export default defineComponent({
       { to: '/instagram', imageUrl: 'instagram.svg'},
     ])
 
+    let showStates = ref(false);
+
 
     /** Methods */
     const toggleFavorite = (e) => {
@@ -266,6 +272,10 @@ export default defineComponent({
       })
     }
 
+    const openStates = () => {
+      router.push('/states')
+    }
+
     return {
       navLinks,
       categories,
@@ -273,6 +283,8 @@ export default defineComponent({
       toggleFavorite,
       footerDetails,
       socials,
+      showStates,
+      openStates,
     }
   }
 })
@@ -280,6 +292,13 @@ export default defineComponent({
 
 <style>
 @import "./styles/guide.css";
-
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: 100vh;
+  background-color: #000;
+  z-index: 1000;
+  opacity: .7;
+}
 
 </style>

@@ -1,5 +1,5 @@
 <template>
-  <header v-if="$route.name==='Home'">
+  <header>
     <div class="container">
       <div class="header__inner">
         <router-link to="/">
@@ -37,6 +37,7 @@ header {
   z-index: 100;
   /*padding: 0 4.5rem;*/
   box-shadow: 0px 1px 2px rgba(0, 0, 0, 0.15);
+  top: 0;
 }
 .header__inner {
   height: 10rem;

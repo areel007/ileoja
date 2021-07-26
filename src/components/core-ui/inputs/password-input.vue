@@ -40,6 +40,7 @@ export default defineComponent({
   width: var(--password-input-width, 100%);
   padding: 1.6rem 2.9rem;
   border-radius: .4rem;
+  background-color: var(--password-input-bg, var(--color-white));
 }
 input {
   width: 95%;
@@ -49,6 +50,7 @@ input {
   outline: none;
   margin-right: auto;
   position: relative;
+  background-color: inherit;
 }
 ::placeholder {
   color: var(--secondary-color);

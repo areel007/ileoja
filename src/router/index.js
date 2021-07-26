@@ -5,7 +5,19 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: Home
+    component: Home,
+    children: [
+      {
+        path: '/auth',
+        name: 'Home',
+        component: () => import('../views/auth/auth-screen.vue')
+      },
+      {
+        path: '/login',
+        name: 'Login',
+        component: () => import('../views/auth/Login.vue')
+      },
+    ]
   },
   {
     path: '/register',
@@ -13,9 +25,14 @@ const routes = [
     component: () => import('../views/auth/Register.vue')
   },
   {
-    path: '/login',
-    name: 'Login',
-    component: () => import('../views/auth/Login.vue')
+    path: '/states',
+    name: 'States',
+    component: () => import('../views/states.vue'),
+  },
+  {
+    path: '/states/:lga',
+    name: 'Lga',
+    component: () => import('../views/lga.vue')
   },
 ]
 

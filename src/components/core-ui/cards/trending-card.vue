@@ -1,9 +1,11 @@
 <template>
   <div class="trending-card">
-    <div class="trending-product-image"></div>
+    <div class="trending-product-image">
+      <img :src="trendingProductImage.length > 0 ? trendingProductImage[0]['image_files'] : require('../../../assets/images/trending-images/default-image.png')" alt="trending product">
+    </div>
     <p class="trending-product-name">{{ trendingProductName }}</p>
     <div class="trending-product-price-and-star">
-      <p class="trending-product-price">{{ trendingProductPrice }}</p>
+      <p class="trending-product-price">&#8358;{{ trendingProductPrice }}</p>
       <svg
           width="18"
           height="18"
@@ -53,6 +55,11 @@ export default defineComponent({
   background-color: var(--primary-color);
   border-radius: .6rem .6rem 0 0;
   margin-bottom: .742rem;
+}
+.trending-product-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 .trending-product-name {
   font-size: var(--fs-18);

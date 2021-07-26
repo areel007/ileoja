@@ -25,6 +25,7 @@ input {
   font-size: var(--fs-16);
   line-height: 2.4rem;
   outline: none;
+  background-color: var(--text-input-bg, var(--color-white));
 }
 ::placeholder {
   color: var(--secondary-color);

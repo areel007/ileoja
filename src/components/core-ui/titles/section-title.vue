@@ -19,7 +19,7 @@ h6 {
   line-height: 2.4rem;
   font-weight: var(--font-weight-medium);
   position: relative;
-  margin-bottom: 4.9rem;
+  margin-bottom: var(--title-margin-bottom, 4.9rem)
 }
 h6:before {
   content: '';
