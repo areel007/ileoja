@@ -39,6 +39,21 @@ export default defineComponent({
   position: sticky;
   top: 10rem;
   border: 1px solid #E9E9E9;
+  max-height: 50rem;
+  overflow-y: auto;
+}
+.side-navis::-webkit-scrollbar {
+  width: .2rem;
+}
+
+.side-navis::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.side-navis::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 100px;
 }
 
 </style>

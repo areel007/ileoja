@@ -17,12 +17,12 @@ const routes = [
         name: 'Login',
         component: () => import('../views/auth/Login.vue')
       },
+      {
+        path: '/register',
+        name: 'Register',
+        component: () => import('../views/auth/Register.vue')
+      },
     ]
-  },
-  {
-    path: '/register',
-    name: 'Register',
-    component: () => import('../views/auth/Register.vue')
   },
   {
     path: '/states',
@@ -34,6 +34,11 @@ const routes = [
     name: 'Lga',
     component: () => import('../views/lga.vue')
   },
+  {
+    path: '/search-filter',
+    name: 'SearchFiler',
+    component: () => import('../views/search-filter')
+  }
 ]
 
 const router = createRouter({

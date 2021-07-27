@@ -46,6 +46,21 @@ export default defineComponent({
   top: 0;
   border: 1px solid #E9E9E9;
   width: calc(100% + 10rem);
+  max-height: 50rem;
+  overflow-y: auto;
+}
+.sub-side-navigation::-webkit-scrollbar {
+  width: .2rem;
+}
+
+.sub-side-navigation::-webkit-scrollbar-track {
+  background-color: #e4e4e4;
+  border-radius: 100px;
+}
+
+.sub-side-navigation::-webkit-scrollbar-thumb {
+  background-color: var(--primary-color);
+  border-radius: 100px;
 }
 
 </style>

@@ -53,6 +53,7 @@ export default defineComponent({
   background-color: #F9F9F9;
   padding: 3.2rem 4.7rem;
   z-index: 5000;
+  position: relative;
 }
 .states__title {
   font-family: var(--montserat);
