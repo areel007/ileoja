@@ -143,7 +143,19 @@
               </div>
             </div>
           </div>
-          <search-filter-card></search-filter-card>
+          <search-filter-card
+              v-for="(product, index) in searchedFilteredProducts"
+              :key="index"
+              :amount="product.amount"
+              :product-image="product.productImage"
+              :is-promoted="product.isPromoted"
+              :location="product.location"
+              :product-description="product.productDescription"
+              :product-name="product.productName"
+              :product-spec="product.productSpec"
+              :time="product.time"
+              :title="product.title"
+          ></search-filter-card>
         </div>
       </div>
     </div>
@@ -151,13 +163,14 @@
 </template>
 
 <script>
-import {defineComponent, ref} from "vue";
+import {defineComponent, reactive, ref} from "vue";
 import SectionTitle from "../components/core-ui/titles/section-title";
 import SearchFilterCard from "../components/core-ui/cards/search-filter-card";
 
 export default defineComponent({
   name: "search-filter",
   components: {SearchFilterCard, SectionTitle},
+  props: ['products'],
   setup () {
     const showCategory = ref(false)
     const showLocation = ref(false)
@@ -165,7 +178,52 @@ export default defineComponent({
     const showYear = ref(false)
     const pickedMake = ref('')
     const pickedYear = ref('')
+    const searchedFilteredProducts = reactive([
+      {
+        amount: 25000,
+        productImage: "muscle.png",
+        isPromoted: true,
+        location: "Lagos",
+        productDescription: "Clean Used Toyota Car working perfectly buy and drive",
+        productName: "Toyota Camry 2021",
+        productSpec: [
+            "Nigerian Use",
+            "Petrol",
+            "Automatic",
+        ],
+        time: "01 - 04 -2021 12:20"
+      },
+      {
+        amount: 25000,
+        productImage: "muscle.png",
+        isPromoted: true,
+        location: "Lagos",
+        productDescription: "Clean Used Toyota Car working perfectly buy and drive",
+        productName: "Toyota Camry 2021",
+        productSpec: [
+          "Nigerian Use",
+          "Petrol",
+          "Automatic",
+        ],
+        time: "01 - 04 -2021 12:20"
+      },
+      {
+        amount: 25000,
+        productImage: "muscle.png",
+        isPromoted: true,
+        location: "Lagos",
+        productDescription: "Clean Used Toyota Car working perfectly buy and drive",
+        productName: "Toyota Camry 2021",
+        productSpec: [
+          "Nigerian Use",
+          "Petrol",
+          "Automatic",
+        ],
+        time: "01 - 04 -2021 12:20"
+      }
+    ])
 
+    /** Methods */
     const toggleCategory = () => {
       showCategory.value = !showCategory.value
     }
@@ -189,6 +247,7 @@ export default defineComponent({
       showYear,
       pickedMake,
       pickedYear,
+      searchedFilteredProducts,
       toggleCategory,
       toggleLocation,
       toggleMake,
