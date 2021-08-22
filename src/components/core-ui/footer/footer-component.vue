@@ -1,5 +1,5 @@
 <template>
-  <footer v-if="$route.name==='Home'">
+  <footer>
     <div class="container">
       <div class="footer__inner">
         <div class="top__footer__inner">
@@ -63,6 +63,8 @@ footer {
   background-color: #f9f9f9;
   display: flex;
   justify-content: center;
+  position: relative;
+  top: 10rem;
 }
 .footer__inner {
   width: 94.6rem;

@@ -19,6 +19,6 @@ export default createStore({
     trending,
     category,
     subcategory,
-    auth
+    auth,
   }
 })

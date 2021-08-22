@@ -121,8 +121,8 @@
               </li>
             </ul>
           </div>
-
         </div>
+
         <div class="filter-main">
           <div class="filter-main-header">
             <section-title title="Cars in lagos state"></section-title>
@@ -143,19 +143,26 @@
               </div>
             </div>
           </div>
-          <search-filter-card
-              v-for="(product, index) in searchedFilteredProducts"
-              :key="index"
-              :amount="product.amount"
-              :product-image="product.productImage"
-              :is-promoted="product.isPromoted"
-              :location="product.location"
-              :product-description="product.productDescription"
-              :product-name="product.productName"
-              :product-spec="product.productSpec"
-              :time="product.time"
-              :title="product.title"
-          ></search-filter-card>
+          <template v-if="searchedFilteredProducts.length>0">
+            <search-filter-card
+                v-for="(product, index) in searchedFilteredProducts"
+                :key="index"
+                :amount="product.amount"
+                :product-image="product.productImage"
+                :is-promoted="product.isPromoted"
+                :location="product.location"
+                :product-description="product.productDescription"
+                :product-name="product.productName"
+                :product-spec="product.productSpec"
+                :time="product.time"
+                :title="product.title"
+            ></search-filter-card>
+          </template>
+          <template v-else>
+            <div class="empty-search-filter">
+              <img src="../assets/images/empty-folder.png" alt="empty folder">
+            </div>
+          </template>
         </div>
       </div>
     </div>
@@ -199,7 +206,7 @@ export default defineComponent({
         isPromoted: true,
         location: "Lagos",
         productDescription: "Clean Used Toyota Car working perfectly buy and drive",
-        productName: "Toyota Camry 2021",
+        productName: "Toyota Camry 2021 Two",
         productSpec: [
           "Nigerian Use",
           "Petrol",
@@ -219,7 +226,7 @@ export default defineComponent({
           "Petrol",
           "Automatic",
         ],
-        time: "01 - 04 -2021 12:20"
+        time: "01 - 04 -2021 12:20",
       }
     ])
 
@@ -434,5 +441,12 @@ export default defineComponent({
 }
 .option svg {
   margin-right: 1.8rem;
+}
+.empty-search-filter {
+  height: 500px;
+  display: flex;
+}
+.empty-search-filter img {
+  margin: auto;
 }
 </style>

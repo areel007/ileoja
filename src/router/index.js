@@ -37,7 +37,32 @@ const routes = [
   {
     path: '/search-filter',
     name: 'SearchFiler',
-    component: () => import('../views/search-filter')
+    component: () => import('../views/search-filter.vue')
+  },
+  {
+    path: '/:id',
+    name: 'ProductPage',
+    component: () => import('../views/product-page.vue')
+  },
+  {
+    path: '/seller-profile',
+    name: 'Seller Profile',
+    component: () => import('../views/seller-profile.vue')
+  },
+  {
+    path: '/error-403',
+    name: 'Four Zero Three',
+    component: () => import('../views/error/403')
+  },
+  {
+    path: '/order',
+    name: 'Order',
+    component: () => import('../views/order')
+  },
+  {
+    path: '/sell',
+    name: 'Sell',
+    component: () => import('../views/sell')
   }
 ]
 

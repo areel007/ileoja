@@ -36,8 +36,8 @@
         <div class="form__control">
           <text-input
               placeholder="email"
-              v-model="email"
-              input-type="email"
+              v-model="user.username"
+              input-type="text"
           ></text-input>
         </div>
 
@@ -45,7 +45,7 @@
           <password-input
               placeholder="password"
               :input-type="passwordInputType"
-              v-model="password"
+              v-model="user.password"
               @hide-password="hidePassword"
           ></password-input>
         </div>
@@ -65,39 +65,39 @@
 </template>
 
 <script lang="ts">
-import {defineComponent, ref} from "vue";
-import Submit from "@/components/core-ui/buttons/submit.vue";
-import PasswordInput from "@/components/core-ui/inputs/password-input.vue";
-import TextInput from "@/components/core-ui/inputs/text-input.vue";
+import {defineComponent} from "vue";
+import Submit from "../../components/core-ui/buttons/submit";
+import PasswordInput from "../../components/core-ui/inputs/password-input";
+import TextInput from "../../components/core-ui/inputs/text-input";
 import SectionTitle from "../../components/core-ui/titles/section-title.vue";
+import {mapActions} from "vuex";
 
 export default defineComponent({
   name: "Login",
   components: {SectionTitle, Submit, PasswordInput, TextInput},
-  setup () {
-    const email = ref('')
-    const passwordInputType = ref('password')
-    const password = ref('')
-
-    /* Methods **/
-    const hidePassword = () => {
-      passwordInputType.value === 'password'
-          ? passwordInputType.value = 'text'
-          : passwordInputType.value = 'password'
-    }
-
-    const login = () => {
-      alert(email.value)
-    }
-
+  data() {
     return {
-      email,
-      passwordInputType,
-      password,
-      hidePassword,
-      login,
+      user: {
+        username: '',
+        password: '',
+      },
+      passwordInputType: 'password'
     }
-  }
+  },
+  methods: {
+    ...mapActions(['loginUser']),
+    hidePassword () {
+      this.passwordInputType === 'password'
+          ? this.passwordInputType = 'text'
+          : this.passwordInputType = 'password'
+    },
+    login () {
+      this.loginUser(this.user)
+      this.$router.push('/')
+    }
+
+  },
+
 })
 </script>
 

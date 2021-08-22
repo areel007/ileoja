@@ -1,5 +1,5 @@
 <template>
-  <div class="search-filter-card">
+  <router-link :to="'/' + productName" class="search-filter-card">
     <div class="search-filter-card-image">
       <img :src="require(`../../../assets/images/${productImage}`)" alt="car">
     </div>
@@ -38,7 +38,7 @@
         <div class="promoted_pro" v-if="isPromoted">Promoted</div>
       </div>
     </div>
-  </div>
+  </router-link>
 </template>
 
 <script>
@@ -54,7 +54,8 @@ export default defineComponent({
       "amount",
       "location",
       "time",
-      "isPromoted"
+      "isPromoted",
+      "to",
 
   ]
 })
