@@ -40,7 +40,7 @@ const routes = [
     component: () => import('../views/search-filter.vue')
   },
   {
-    path: '/:id',
+    path: '/product/:id',
     name: 'ProductPage',
     component: () => import('../views/product-page.vue')
   },
@@ -63,7 +63,200 @@ const routes = [
     path: '/sell',
     name: 'Sell',
     component: () => import('../views/sell')
-  }
+  },
+  {
+    path: '/account',
+    name: 'Account',
+    component: () => import('../views/account'),
+    children: [
+      {
+        path: '/account/invite-people',
+        name: 'Invite People',
+        component: () => import('../views/account/invite-people')
+      },
+      {
+        path: '/account/statistics',
+        name: 'Statistics',
+        component: () => import('../views/account/statistics')
+      },
+      {
+        path: '/account/my-adverts',
+        name: 'My Adverts',
+        component: () => import('../views/account/my-adverts'),
+        children: [
+          {
+            path: '/account/my-adverts/',
+            name: 'My Adverts',
+            component: () => import('../views/account/my-adverts/active'),
+          },
+          {
+            path: '/account/my-adverts/pending',
+            name: 'Pending',
+            component: () => import('../views/account/my-adverts/pending'),
+          },
+        ]
+      },
+      {
+        path: '/account/favorite',
+        name: 'Favorite',
+        component: () => import('../views/favorite'),
+        children: [
+          {
+            path: '/account/favorite/adverts',
+            name: 'Adverts',
+            component: () => import('../views/favorite/adverts'),
+          },
+          {
+            path: '/account/favorite/search',
+            name: 'Favorite Search',
+            component: () => import('../views/favorite/favorite-search'),
+          }
+        ]
+      },
+      {
+        path: '/account/notification',
+        name: 'Notification',
+        component: () => import('../views/notification')
+      },
+      {
+        path: '/account/get-more-sales',
+        name: 'Get More Sales',
+        component: () => import('../views/get-more'),
+        children: [
+          {
+            path: '/account/get-more-sales/property',
+            name: 'Property',
+            component: () => import('../views/get-more/property'),
+            children: [
+              {
+                path: '/account/get-more-sales/property/standard',
+                name: 'Property / Standard',
+                component: () => import('../views/get-more/property/standard'),
+              },
+              {
+                path: '/account/get-more-sales/property/bronze',
+                name: 'Property / Bronze',
+                component: () => import('../views/get-more/property/bronze'),
+              }
+            ]
+          },
+          {
+            path: '/account/get-more-sales/cars',
+            name: 'Cars',
+            component: () => import('../views/get-more/cars'),
+            children: [
+              {
+                path: '/account/get-more-sales/cars/standard',
+                name: 'Cars / Standard',
+                component: () => import('../views/get-more/car/standard'),
+              },
+              {
+                path: '/account/get-more-sales/cars/bronze',
+                name: 'Cars / Bronze',
+                component: () => import('../views/get-more/car/bronze'),
+              }
+            ]
+          },
+          {
+            path: '/account/get-more-sales/others',
+            name: 'Cars',
+            component: () => import('../views/get-more/others'),
+            children: [
+              {
+                path: '/account/get-more-sales/cars/standard',
+                name: 'Others / Standard',
+                component: () => import('../views/get-more/others/standard'),
+              },
+              {
+                path: '/account/get-more-sales/cars/bronze',
+                name: 'Others / Bronze',
+                component: () => import('../views/get-more/others/bronze'),
+              }
+            ]
+          },
+        ]
+      },
+      {
+        path: '/account/feedback',
+        name: 'Feedback',
+        component: () => import('../views/feedback'),
+        children: [
+          {
+            path: '/account/feedback/received',
+            name: 'Feedback Received',
+            component: () => import('../views/feedback/received')
+          },
+          {
+            path: '/account/feedback/sent',
+            name: 'Feedback Sent',
+            component: () => import('../views/feedback/sent')
+          },
+        ]
+      },
+      {
+        path: '/account/balance',
+        name: 'Balance',
+        component: () => import('../views/balance')
+      },
+      {
+        path: '/account/followers',
+        name: 'Follower',
+        component: () => import('../views/follower'),
+        children: [
+          {
+            path: '/account/followers/follower',
+            name: 'Follower',
+            component: () => import('../views/follower/follower'),
+          },
+          {
+            path: '/account/followers/following',
+            name: 'Following',
+            component: () => import('../views/follower/following'),
+          },
+          {
+            path: '/account/followers/request',
+            name: 'Request',
+            component: () => import('../views/follower/request'),
+          },
+        ]
+      },
+      {
+        path: '/account/faq',
+        name: 'FAQ',
+        component: () => import('../views/faq')
+      },
+      {
+        path: '/account/account-officer',
+        name: 'Account officer',
+        component: () => import('../views/account-officer')
+      },
+      {
+        path: '/account/referral',
+        name: 'Referral',
+        component: () => import('../views/referral')
+      },
+      {
+        path: '/account/report',
+        name: 'Report',
+        component: () => import('../views/report')
+      },
+      {
+        path: '/account/top-ads',
+        name: 'Top Ads',
+        component: () => import('../views/top-ads')
+      },
+      {
+        path: '/account/special-fb-ads',
+        name: 'Special FB Ads',
+        component: () => import('../views/special-fb-ads')
+      },
+    ]
+  },
+  {
+    path: '/message',
+    name: 'Message',
+    component: () => import('../views/message')
+  },
 ]
 
 const router = createRouter({

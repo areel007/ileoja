@@ -28,6 +28,7 @@
             </button>
           </div>
           <search-input></search-input>
+          {{ searchInput }}
         </div>
       </div>
     </div>
