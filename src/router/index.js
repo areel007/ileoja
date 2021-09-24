@@ -257,6 +257,53 @@ const routes = [
     name: 'Message',
     component: () => import('../views/message')
   },
+  {
+    path: '/setting',
+    name: 'Setting',
+    component: () => import('../views/setting'),
+    children: [
+      {
+        path: '/setting/profile',
+        name: 'Profile',
+        component: () => import('../views/setting/profile')
+      },
+      {
+        path: '/setting/phone-number-settings',
+        name: 'Phone Number Settings',
+        component: () => import('../views/setting/phone-number-setting')
+      },
+      {
+        path: '/setting/chat-settings',
+        name: 'Chat Settings',
+        component: () => import('../views/setting/chat-setting')
+      },
+      {
+        path: '/setting/feedback-settings',
+        name: 'Feedback Settings',
+        component: () => import('../views/setting/feedback-settings')
+      },
+      {
+        path: '/setting/social-settings',
+        name: 'Social Settings',
+        component: () => import('../views/setting/social-settings')
+      },
+      {
+        path: '/setting/notification-settings',
+        name: 'Notification Settings',
+        component: () => import('../views/setting/notification-settings')
+      },
+      {
+        path: '/setting/change-password',
+        name: 'Change Password',
+        component: () => import('../views/setting/change-password')
+      },
+      {
+        path: '/setting/manage-account',
+        name: 'Manage Account',
+        component: () => import('../views/setting/manage-account')
+      },
+    ]
+  }
 ]
 
 const router = createRouter({

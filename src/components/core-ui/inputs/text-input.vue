@@ -26,6 +26,7 @@ input {
   line-height: 2.4rem;
   outline: none;
   background-color: var(--text-input-bg, var(--color-white));
+  margin-bottom: var(--text-input-margin-bottom, 0);
 }
 ::placeholder {
   color: var(--secondary-color);

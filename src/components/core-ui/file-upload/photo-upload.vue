@@ -2,7 +2,7 @@
   <div class="photo-upload">
     <input type="file" id="file" accept="*/image*" @change="onFileSelected">
     <label for="file">
-      <img src="../../../assets/images/cams.png" alt="camera">
+      <img :src="require(`../../../assets/images/${icon}.png`)" alt="camera">
     </label>
   </div>
 </template>
@@ -10,6 +10,7 @@
 <script>
 export default {
   name: "photo-upload",
+  props: ['icon'],
   setup() {
     const selectedFiles = null
     const onFileSelected = (event) => {
@@ -26,6 +27,7 @@ export default {
   width: 70px;
   height: 70px;
   display: flex;
+  margin-bottom: var(--photo-upload-margin-botton, 0);
 }
 input[type="file"] {
   display: none;

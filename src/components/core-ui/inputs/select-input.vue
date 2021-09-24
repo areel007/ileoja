@@ -27,6 +27,7 @@ export default {
   align-items: center;
   width: var(--select-input-width, 100%);
   position: relative;
+  margin-bottom: var(--select-input-margin-bottom, 0)
 }
 select {
   padding: 1.6rem 2.9rem;

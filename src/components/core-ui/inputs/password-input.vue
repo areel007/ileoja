@@ -41,6 +41,7 @@ export default defineComponent({
   padding: 1.6rem 2.9rem;
   border-radius: .4rem;
   background-color: var(--password-input-bg, var(--color-white));
+  margin-bottom: var(--password-input-margin-bottom, 0);
 }
 input {
   width: 95%;

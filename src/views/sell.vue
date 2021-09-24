@@ -17,7 +17,7 @@
                 <p class="add-photo-title">Add Photo</p>
                 <p class="add-photo-subtitle">First Picture is the title picture. you can also add up to five pictures</p>
                 <div class="photo-upload-wrapper">
-                  <photo-upload></photo-upload>
+                  <photo-upload icon="file-upload"></photo-upload>
                 </div>
                 <p class="add-photo-subtitle">Supported formats are .jpg, .gif, .png
                   Each picture must not exceed 5 Mb.</p>
